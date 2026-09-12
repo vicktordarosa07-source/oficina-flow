@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,7 +27,7 @@ import {
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
-export default function NovoVeiculoPage() {
+function NovoVeiculoForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const clienteIdPrefill = searchParams.get("cliente_id") || "";
@@ -217,5 +218,19 @@ export default function NovoVeiculoPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function NovoVeiculoPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex h-64 items-center justify-center">
+          <p className="text-muted-foreground">Carregando...</p>
+        </div>
+      }
+    >
+      <NovoVeiculoForm />
+    </Suspense>
   );
 }
