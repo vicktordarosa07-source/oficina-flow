@@ -55,6 +55,10 @@ export async function updateSession(request: NextRequest) {
 }
 
 export async function middleware(request: NextRequest) {
+  // Skip middleware if env vars are not set (build time / placeholder)
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL === "") {
+    return NextResponse.next();
+  }
   return await updateSession(request);
 }
 
