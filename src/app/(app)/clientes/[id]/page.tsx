@@ -1,7 +1,6 @@
 "use client";
 
 import { use } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -27,7 +26,6 @@ export default function ClienteDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
-  const router = useRouter();
   const { data: cliente, isLoading } = useCliente(id);
   const { data: veiculos } = useVeiculos(id);
   const updateMutation = useUpdateCliente();

@@ -7,7 +7,6 @@ import type {
   Veiculo,
   Orcamento,
   OrcamentoItem,
-  OrdemServico,
   FollowUp,
   DashboardMetrics,
   StatusOrcamento,

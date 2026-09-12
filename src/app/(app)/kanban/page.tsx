@@ -23,13 +23,9 @@ import { useOrcamentos, useUpdateOrcamentoStatus } from "@/hooks";
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  STATUS_ORCAMENTO_LABELS,
-  STATUS_ORCAMENTO_COLORS,
   type StatusOrcamento,
   type KanbanColumn,
   type Orcamento,
